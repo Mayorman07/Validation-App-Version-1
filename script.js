@@ -59,7 +59,7 @@ if (!window.SpeechRecognition) {
     }
 
     function greetUser(name) {
-        const message = `Lovely to meet you, ${name}! You light up the room with just your smile!`;
+        const message = `Lovely to meet you, ${name}! Your energy is magnetic and your soul is pure light!`;
         niceThingsEl.innerHTML = `<div>${message}</div>`;
         speakMessage(message, () => speakNiceThings(name));
     }
