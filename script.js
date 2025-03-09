@@ -59,9 +59,12 @@ if (!window.SpeechRecognition) {
     }
 
     function greetUser(name) {
-        const message = `Lovely to meet you, ${name}! Your energy is magnetic and your soul is pure light!`;
+        // Capitalize the first letter
+        const formattedName = name.charAt(0).toUpperCase() + name.slice(1);
+        
+        const message = `Lovely to meet you, ${formattedName}! Your energy is magnetic and your soul is pure light!`;
         niceThingsEl.innerHTML = `<div>${message}</div>`;
-        speakMessage(message, () => speakNiceThings(name));
+        speakMessage(message, () => speakNiceThings(formattedName));
     }
 
     function speakNiceThings(name) {

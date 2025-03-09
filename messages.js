@@ -8,7 +8,7 @@ export const niceMessages = [
     `Your laughter dances through the air like sunshine on a breezy morning`,
     `You radiate positivity and strength in everything you do.`,
     `Keep smiling, you aura is the loveliest ever!`,
-    `You're capable of achieving amazing things.`,
+    `You're capable of achieving outstanding things.`,
     `You bring joy to everyone around you!`,
     `Stay awesome! Keep believing in yourself.`,
     `The earth is brighter because you're in it, {name}.`,
