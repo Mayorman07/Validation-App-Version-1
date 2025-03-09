@@ -5,7 +5,7 @@ export const niceMessages = [
     `Your energy is uplifting, and your presence is comforting.`,
     `You're a gift to the people around you—never forget that.`,
     `Every step you take is leading you toward something great.`,
-    `Your laughter is contagious and makes the world lighter.`,
+    `Your laughter is infectious and it fills the air with joy.`,
     `You radiate positivity and strength in everything you do.`,
     `Keep smiling, you aura is the loveliest ever!`,
     `You're capable of achieving amazing things.`,
