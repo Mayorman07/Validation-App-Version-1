@@ -4,20 +4,19 @@ const msgEl = document.getElementById('msg');
 const niceThingsEl = document.getElementById('nice-things');
 const restartBtn = document.getElementById('restart-btn');
 
-let userName = ''; // Store the user's name
-let isRecognizing = false; // Track if recognition is running
-let isSpeaking = false; // Track if speech synthesis is active
-let voices = []; // Store available voices
+let userName = '';
+let isRecognizing = false;
+let isSpeaking = false;
+let voices = [];
 
-// Ensure SpeechRecognition is supported
 if (!("SpeechRecognition" in window)) {
     window.SpeechRecognition = window.webkitSpeechRecognition;
 }
 
 if (!window.SpeechRecognition) {
-    alert("Speech Recognition is not supported in your browser.");
+    alert("Speech Recognition not supported.");
 } else {
-    let recognition = new window.SpeechRecognition();
+    const recognition = new window.SpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = false;
 
@@ -25,16 +24,14 @@ if (!window.SpeechRecognition) {
     recognition.onerror = (e) => console.error("Recognition error:", e);
     recognition.onend = () => {
         if (!isSpeaking) {
-            startRecognition(); // Restart only if speech isn't happening
+            startRecognition();
         }
     };
 
     function loadVoices() {
         voices = window.speechSynthesis.getVoices();
         if (voices.length === 0) {
-            setTimeout(loadVoices, 200); // Retry loading voices every 200ms
-        } else {
-            console.log("Voices loaded:", voices);
+            setTimeout(loadVoices, 200);
         }
     }
 
@@ -44,12 +41,11 @@ if (!window.SpeechRecognition) {
         if (!isRecognizing && !isSpeaking) {
             recognition.start();
             isRecognizing = true;
-            console.log("Speech recognition started...");
         }
     }
 
     function onSpeak(e) {
-        if (isSpeaking) return; // Prevent recognition while speaking
+        if (isSpeaking) return;
 
         const msg = e.results[0][0].transcript.trim();
         console.log("User said:", msg);
@@ -63,35 +59,38 @@ if (!window.SpeechRecognition) {
     }
 
     function greetUser(name) {
-        const message = `Nice to meet you, ${name}! You are incredible, and I want to tell you why!`;
+        const message = `Lovely to meet you, ${name}! You light up the room with just your smile!`;
         niceThingsEl.innerHTML = `<div>${message}</div>`;
         speakMessage(message, () => speakNiceThings(name));
     }
 
     function speakNiceThings(name) {
-        let index = 0;
+        // Shuffle messages
+        const shuffledMessages = [...niceMessages];
+        shuffledMessages.sort(() => Math.random() - 0.5);
+
+        let currentIndex = 0;
 
         function speakNext() {
-            if (index < niceMessages.length) {
-                const personalizedMessage = niceMessages[index].replace("{name}", name); // Replace placeholder with user's name
+            if (currentIndex < shuffledMessages.length) {
+                const message = shuffledMessages[currentIndex];
+                const personalizedMessage = message.replace("{name}", name);
                 speakMessage(personalizedMessage, () => {
-                    index++;
+                    currentIndex++;
                     speakNext();
                 });
             } else {
-                // Stop speech recognition after speaking all messages
                 recognition.stop();
                 isRecognizing = false;
                 resetUI();
             }
         }
 
-        speakNext(); // Start speaking compliments
+        speakNext();
     }
 
     function speakMessage(message, callback = null) {
-        console.log("Speaking message:", message);
-        window.speechSynthesis.cancel(); // Cancel any ongoing speech
+        window.speechSynthesis.cancel();
         const speech = new SpeechSynthesisUtterance(message);
 
         if (voices.length === 0) {
@@ -117,24 +116,21 @@ if (!window.SpeechRecognition) {
             document.querySelector('h1').innerText = 'Great to Meet You!';
             document.querySelector('h2').innerText = 'I’m Jarvis, Mayowa created me for you!';
             document.querySelector('h3').innerText = 'Thank you for listening!';
-            restartBtn.style.display = 'block'; // Show the restart button
+            restartBtn.style.display = 'block';
         }, 2000);
     }
 
-    // Wait for user interaction before starting recognition
     document.addEventListener('click', () => {
-        console.log("User interacted with the page.");
         loadVoices();
         startRecognition();
     }, { once: true });
 
-    // Restart functionality
     restartBtn.addEventListener('click', () => {
-        userName = ''; // Reset the user's name
+        userName = '';
         document.querySelector('h1').innerText = 'Say your name!';
         document.querySelector('h2').innerText = 'I’m Jarvis, Mayowa created me for you!';
         document.querySelector('h3').innerText = 'Speak your name into the microphone';
-        restartBtn.style.display = 'none'; // Hide the restart button
+        restartBtn.style.display = 'none';
         startRecognition();
     });
 }
