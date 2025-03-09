@@ -36,6 +36,7 @@ export const niceMessages = [
     `Your uniqueness is a gift—embrace it with confidence.`,
     `You are capable of achieving your dreams—keep pushing forward.`,
     `Your patience and perseverance will lead you to greatness.`,
+    `You are a masterpiece—every smile,every laugh,is a brushstroke of pure magic on the canvas of life.`
     `You have a soul that radiates beauty.`,
     `You are elegantly beautiful, know this and know peace`,
     `You deserve happiness, success, and all the good things in life.`,
