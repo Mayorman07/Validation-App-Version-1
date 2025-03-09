@@ -1,4 +1,4 @@
-/* styles.css */
+/* Base styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,15 +6,24 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html, body {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden; /* Prevent unwanted scrolling */
+}
+
 body {
-    background: #2f3542 url('img/bg.jpg') no-repeat left center/cover;
+    background: #2f3542 url('img/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 100vh;
+    padding: 20px;
 }
 
 h1, h2, h3 {
@@ -22,9 +31,31 @@ h1, h2, h3 {
 }
 
 .message-box {
-    font-size: 1.5em;
+    font-size: clamp(1.2em, 3vw, 1.5em);
     margin-top: 20px;
-    padding: 10px;
+    padding: 15px;
     background: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
+    border-radius: 10px;
+    max-width: 80vw;
+    word-wrap: break-word;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .message-box {
+        font-size: 1rem;
+        padding: 12px;
+        width: 95%;
+    }
+}
+
+@media (max-width: 400px) {
+    .message-box {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
 }
