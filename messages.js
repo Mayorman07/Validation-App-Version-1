@@ -36,7 +36,7 @@ export const niceMessages = [
     `Your uniqueness is a gift—embrace it with confidence.`,
     `You are capable of achieving your dreams—keep pushing forward.`,
     `Your patience and perseverance will lead you to greatness.`,
-    `You are a masterpiece {name},every smile,every laugh,is a brushstroke of pure magic on the canvas of life.`,
+    `You are a masterpiece {name},every laugh,is a brushstroke of pure magic on the canvas of life.`,
     `You have a soul that radiates beauty.`,
     `You are elegantly beautiful, know this and know peace`,
     `You deserve happiness, success, and all the good things in life.`,
@@ -48,8 +48,15 @@ export const niceMessages = [
     `You inspire more people than you realize, {name}.`,
     `Your positivity is like a ripple that spreads everywhere you go.`,
     `You make life’s journey brighter for everyone around you.`,
-    `You bring warmth, light, and love to those around you.`,
+    `You bring warmth, and love to those around you.`,
     `Your intelligence, and resilience are truly special.`,
     `Every challenge you overcome makes you even more extraordinary.`,
-    `You are enough, just as you are, and always will be.`
+    `You are enough, just as you are, and always will be.`,
+    `Your perfection lies not in flawlessness, but in the beautiful way you are uniquely you.`,
+    `You have a heart of gold, overflowing with love and compassion.`,
+    `You make even the simplest things feel special and meaningful.`,
+    `Just being in your orbit makes everything feel a little more perfect.`,
+    `You are a constant reminder of the good that exists in the world.`,
+    `Your smile is like a contagious ripple that brightens any room.`,
+    `There will be only one of you and we are all grateful you exist, {name}`
 ];
