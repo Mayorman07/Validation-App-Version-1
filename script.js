@@ -1,4 +1,4 @@
-import { niceMessages } from './messages.js'; // Import the messages
+import { niceMessages } from './messages.js';
 
 const msgEl = document.getElementById('msg');
 const niceThingsEl = document.getElementById('nice-things');
