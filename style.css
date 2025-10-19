@@ -15,7 +15,7 @@ html, body {
 }
 
 body {
-    background: #2f3542 url('img/beach.jpg') no-repeat center center fixed;
+    background: #2f3542 url('img/track.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     display: flex;
